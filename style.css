@@ -1,0 +1,27 @@
+.input1{
+    padding: 1%;
+    width: 50%;
+    margin-bottom: 1%;
+}
+.para{
+    font-size: large;
+}
+#output{
+    font-size: large;
+}
+#total{
+    width: 100%;
+}
+td{
+    width: 50%;
+}
+#submit{
+    display: block;
+    padding: 0.5% 1%;
+    font-size: large;
+    margin: auto;
+    margin-top: 20px;
+}
+#head{
+    margin-bottom: 20px;
+}
