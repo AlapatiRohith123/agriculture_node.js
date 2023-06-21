@@ -87,7 +87,7 @@ async function run(){
     const MODEL_URL = 'http://localhost:3000/model.json';
     const model = await tf.loadLayersModel(MODEL_URL);
     //console.log(model.summary());
-    const input = tf.tensor2d(arrf, [1,44]);
+    const input = tf.tensor3d(arrf, [1,1,44]);
     const result = await model.predict(input);
     var num=parseFloat(result.toString().slice(14,23))*68.79655917165852;
     document.getElementById("output").innerHTML="Yield of "+arr[2].slice(5)+" is : "+Math.round((num + Number.EPSILON) * 100) / 100+" (Kg/Acre)";
