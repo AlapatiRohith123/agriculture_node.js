@@ -43,6 +43,11 @@ async function run(){
     var arr=[];
     for(let i of elements)
     {
+        if(i.value=="")
+        {
+            alert(i.name+" field is manditory");
+            return;
+        }
         arr.push(i.value);
     }
     const arrd=['District_Adilabad', 'District_Bhadradri','District_Jagitial', 'District_Jangoan', 'District_Jayashankar','District_Jogulamba', 'District_Kamareddy', 'District_Karimnagar','District_Khammam', 'District_Komaram bheem asifabad','District_Mahabubabad', 'District_Mahbubnagar', 'District_Mancherial','District_Medak', 'District_Medchal', 'District_Mulugu','District_Nagarkurnool', 'District_Nalgonda', 'District_Narayanapet','District_Nirmal', 'District_Nizamabad', 'District_Peddapalli','District_Rajanna', 'District_Rangareddy', 'District_Sangareddy','District_Siddipet', 'District_Suryapet', 'District_Vikarabad','District_Wanaparthy', 'District_Warangal', 'District_Warangal urban','District_Yadadri'];
