@@ -4,7 +4,7 @@
   <title>Vanam</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.jpeg">
+  <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -16,8 +16,8 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <img src="favicon.jpeg" alt="logo" width="40px" height="40px">
-  <a class="navbar-brand" href="#"><span style="margin-left: 5px;">VANAM</span></a>
+    <img src="favicon.png" alt="logo" width="40px" height="40px">
+  <a class="navbar-brand" href="index.html"><span style="margin-left: 5px;">VANAM</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,12 +37,13 @@
 </nav>
 <br>
 
-<div class="container">
+<div class="container entire2">
     <h1 id="head">Crop Yield Prediction</h1>
     <p></p>
-      <table id="total">
+    <form id="myForm" onsubmit="run()">
+      <table class="total">
         <tr>
-          <td><label for="district">Select District : </label></td>
+          <td><span class="mandatory">* </span><label for="district">Select District : </label></td>
           <td>
             <select name="district" id="district" class="input1">
               <option value="District_Adilabad">Adilabad</option>
@@ -80,8 +81,9 @@
             </select>
           </td>
         </tr>
-        <tr>
-          <td><label for="season">Select Season : </label></td>
+        
+        <tr id="hide2">
+          <td><span class="mandatory">* </span><label for="season">Select Season : </label></td>
           <td>
             <select name="season" id="season" class="input1">
               <option value="Season_rabi">rabi</option>
@@ -89,8 +91,9 @@
             </select>
           </td>
         </tr>
+        
         <tr>
-          <td><label for="crop">Select Crop : </label></td>
+          <td><span class="mandatory">* </span><label for="crop">Select Crop : </label></td>
           <td>
             <select name="crop" id="crop" class="input1">
               <option value="Crop_Groundnut">Groundnut</option>
@@ -101,37 +104,67 @@
             </select>
           </td>
         </tr>
-        <tr>
-          <td><label for="rainfall">Enter Rainfall(mm) (Between 0.5 and 283) : </label></td>
+        
+        <tr class="hide">
+          <td><span class="mandatory">* </span><label for="rainfall">Enter Rainfall(mm) (Between 0.5 and 283) : </label></td>
           <td><input required type="number" step="any" id="rainfall" name="rainfall" placeholder="Enter Rainfall(mm) (Between 0.5 and 283)" class="input1" value="87.9" min="0.5" max="283" onfocusout="fun1(this)"></td>
         </tr>
-        <tr>
-          <td><label for="min_temp">Enter Minimum Temperature(C) (Between 2 and 40) : </label></td>
+        
+        <tr class="hide">
+          <td><span class="mandatory">* </span><label for="min_temp">Enter Minimum Temperature(C) (Between 2 and 40) : </label></td>
           <td><input required type="number" step="any" id="min_temp" name="min_temp" placeholder="Enter Minimum Temperature(C) (Between 2 and 40)" class="input1" value="23.13" min="2" max="40" onfocusout="fun2(this)"></td>
         </tr>
-        <tr>
-          <td><label for="max_temp">Enter Maximum Temperature(C) (Between 25 and 55) : </label></td>
+        
+        <tr class="hide">
+          <td><span class="mandatory">* </span><label for="max_temp">Enter Maximum Temperature(C) (Between 25 and 55) : </label></td>
           <td>
             <input required type="number" step="any" id="max_temp" name="max_temp" placeholder="Enter Maximum Temperature(C) (Between 25 and 55)" class="input1" value="40.34" min="25" max="55" onfocusout="fun3(this)">
           </td>
         </tr>
+        
         <tr>
-          <td><label for="irrigation">Enter Irrigation(MBGL) (Between 1 and 33) : </label></td>
+          <td><span class="mandatory">* </span><label for="irrigation">Enter Irrigation(MBGL) (Between 1 and 33) : </label></td>
           <td>
             <input required type="number" step="any" id="irrigation" name="irrigation" placeholder="Enter Irrigation(MBGL) (Between 1 and 33)" class="input1" value="11.48" min="1" max="33" onfocusout="fun4(this)">
           </td>
         </tr>
+        
         <tr>
-          <td><label for="ph">Enter Ph value (Between 0 and 14) : </label></td>
+          <td><span class="mandatory">* </span><label for="ph">Enter Ph value (Between 0 and 14) : </label></td>
           <td>
             <input required type="number" step="any" id="ph" name="ph" placeholder="Enter Ph value (Between 0 and 14)" class="input1" value="7.26" min="0" max="14" onfocusout="fun5(this)">
           </td>
         </tr>
+        
       </table>
-      <input type="submit" value="Submit" id="submit" onclick="run()">
+      <div class="butdiv">
+        <input type="button" id="custom" onclick="hide(this)" value="Custom" class="btn btn-outline-success my-2 my-sm-0" >
+      </div>
+      <div class="butdiv">
+        <input type="submit" value="Submit" id="submit" class="btn btn-outline-success my-2 my-sm-0" >
+      </div>
+    </form>
     <p></p>
     <h1>Output</h1>
     <b><p id="output"></p></b>
 </div>
+<footer class="footer">
+  <div class="div">
+    <div>
+      <h2>About Us</h2>
+      <p>This website is done with the contribution of Project School team, KMIT</p>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <p>Email: abcdef@gmail.com<br>Phone: 1234567890</p>
+    </div>
+  </div>
+  <div class="div2">© 2023 VANAM. All rights reserved.</div>
+</footer>
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+  });
+</script>
 </body>
 </html>
